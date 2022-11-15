@@ -4,41 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="script.js" defer></script>
-    <link type="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon">
     <title>Compress Image</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="upload-box">
-            <img src="upload.png">
+            <img src="./image/upload.png">
             <input type="file" accept="image/*" hidden>
-            <p>Browse Your Image</p>
+            <p>Drop Your Image Here</p>
         </div>
         <div class="content">
             <div class="row size">
-                <div class="column width">
-                    <label>Width</label>
-                    <input type="number">
+                <div class="col-12 col-sm-12 col-md-6 width">
+                    <label class="form-label">Width</label>
+                    <div class="form-group">
+                        <input type="number" class="form-control">
+                        <span class="unit">px</span>
+                    </div>
                 </div>
-                <div class="column height">
-                    <label>height</label>
-                    <input type="number">
+                <div class="col-12 col-sm-12 col-md-6 height">
+                    <label class="form-label">Height</label>
+                    <div class="form-group">
+                        <input type="number" class="form-control">
+                        <span class="unit">px</span>
+                    </div>
+
                 </div>
-            </div>  
-            <div class="row checkboxes">
-                <div class="column ratio">
-                    <input type="checkbox" id="ratio">
-                    <label for="ratio">Lock Ratio of Image</label>
-                </div>  
-                <div class="column Quality">
-                    <input type="checkbox" id="Quality">
-                    <label for="Quality">Reduce Quality of Image</label>
-                </div>  
-            </div> 
-            <button class="download">Save New Image</button>
+            </div>
+            <div class="checkboxes mt-3">
+                <div class="form-check Ratio">
+                    <input class="form-check-input" type="checkbox" value="" id="Ratio">
+                    <label class="form-check-label" for="Ratio">
+                        Lock Ratio of Image
+                    </label>
+                </div>
+                <div class="form-check Quality">
+                    <input class="form-check-input" type="checkbox" value="" id="Quality">
+                    <label class="form-check-label" for="Quality">
+                        Reduce Quality of Image
+                    </label>
+                </div>
+            </div>
+            <button class="download btn btn-primary mt-3">Save New Image</button>
         </div>
     </div>
-   
+
 </body>
 </html>
