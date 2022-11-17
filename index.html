@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon" />
     <title>Compress Image</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="upload-box">
-            <img src="./image/upload.png">
-            <input type="file" accept="image/*" hidden>
-            <p>Drop Your Image Here</p>
-        </div>
-        <div class="content">
-            <div class="row size">
-                <div class="col-12 col-sm-12 col-md-6 width">
-                    <label class="form-label">Width</label>
-                    <div class="form-group">
-                        <input type="number" class="form-control">
-                        <span class="unit">px</span>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 height">
-                    <label class="form-label">Height</label>
-                    <div class="form-group">
-                        <input type="number" class="form-control">
-                        <span class="unit">px</span>
-                    </div>
-
-                </div>
+      <div class="upload-box p-3">
+        <img src="./image/upload.png" />
+        <input type="file" accept="image/*" hidden onchange="showPreview(event);" />
+        <span>Drop Your Image Here</span>
+      </div>
+      <div class="content">
+        <div class="row size">
+          <div class="col-6 col-sm-6 col-md-6 width">
+            <label class="form-label">Width</label>
+            <div class="form-group">
+              <input type="number" class="form-control" />
+              <span class="unit">px</span>
             </div>
-            <div class="checkboxes mt-3">
-                <div class="form-check Ratio">
-                    <input class="form-check-input" type="checkbox" value="" id="Ratio">
-                    <label class="form-check-label" for="Ratio">
-                        Lock Ratio of Image
-                    </label>
-                </div>
-                <div class="form-check Quality">
-                    <input class="form-check-input" type="checkbox" value="" id="Quality">
-                    <label class="form-check-label" for="Quality">
-                        Reduce Quality of Image
-                    </label>
-                </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-6 height">
+            <label class="form-label">Height</label>
+            <div class="form-group">
+              <input type="number" class="form-control" />
+              <span class="unit">px</span>
             </div>
-            <button class="download btn btn-primary mt-3">Save New Image</button>
+          </div>
         </div>
+        <div class="row checkboxes mt-3">
+          <div class="col-6 col-sm-6 col-md-6">
+            <div class="form-check Ratio">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Ratiordb"
+              />
+              <label class="form-check-label" for="Ratio"> Lock Ratio </label>
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-6">
+            <div class="form-check Quality">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Qualityrdb"
+              />
+              <label class="form-check-label" for="Quality">
+                Reduce Quality 
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="buttons d-flex justify-content-between mt-3">
+          <button class="download btn btn-primary">Save New Image</button>
+          <button class="clear btn btn-primary">Clear Image</button>
+        </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
