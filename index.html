@@ -11,16 +11,21 @@
     <title>Compress Image</title>
   </head>
   <body>
+
     <div class="wrapper">
       <div class="upload-box p-3">
-        <img src="./image/upload.png" />
+        <img src="" alt="">
+        <img src="./image/images.png" alt="Cloud"  id="Cloud"  class="animation">
+        <img src="./image/images (1).png" alt="Sun" id="Sun" class="animation">
+        <img src="./image/images (6).png" alt="Mountain" id="Mountain" class="animation">
         <input
           type="file"
           accept="image/*"
           hidden
           onchange="showPreview(event);"
         />
-        <span>Drop Your Image Here</span>
+        <span class="animation">Drop Your Image Here</span>
+
       </div>
       <div class="content d-none">
         <div class="row size">

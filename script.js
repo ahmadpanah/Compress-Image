@@ -5,9 +5,17 @@ const uploadBox = document.querySelector(".upload-box"),
   textBox = uploadBox.querySelector("span"),
   contentBox = document.querySelector(".content"),
   reduceQuality = document.querySelector(".Quality #Quality"),
-  RateBox = document.querySelector(".ReductionRate");
+  RateBox = document.querySelector(".ReductionRate"),
+  cloudImg=document.querySelector('#Cloud'),
+  sunImg=document.querySelector('#Sun'),
+  mountainImg=document.querySelector('#Mountain');
 
-uploadBox.addEventListener("click", () => fileInput.click());
+uploadBox.addEventListener("click", () => {
+  fileInput.click();
+  cloudImg.style.display="none"
+  sunImg.style.display="none"
+  mountainImg.style.display="none"
+});
 
 clearBtn.addEventListener("click", () => {
   /* fileInput.value = null;
@@ -28,6 +36,8 @@ const showPreview = (event) => {
     imageBox.src = src;
     imageBox.style.setProperty("filter", "none");
     textBox.classList.add("mt-3");
+    textBox.style.bottom="15px";
+    textBox.style.left="43%";
     textBox.innerHTML =
       event.target.files[0].size / 1024 > 1024
         ? Math.round(event.target.files[0].size / 1048576) + " MB"

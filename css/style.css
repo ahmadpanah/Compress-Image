@@ -37,12 +37,83 @@ div.wrapper {
   margin: 0 auto;
   border-radius: 1em;
   cursor: pointer;
+  height: 40vh;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.upload-box img {
+    width: 30%;
+} 
+
+.upload-box .animation{
+  position: absolute;
 }
 
-.upload-box img {
-  width: 30%;
-  filter: invert(39%) sepia(60%) saturate(5810%) hue-rotate(207deg)
-    brightness(97%) contrast(105%);
+.upload-box span{
+  position: absolute;
+  left: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  animation: span 3s forwards;
+}
+
+@keyframes span{
+  0%{
+    transform: scale(0.5);
+  }
+  100%{
+  transform: scale(1);  
+  }
+}
+
+.upload-box #Cloud{
+  animation: cloud 3s forwards;
+  top: 20px;
+  width: 80px;
+}
+
+@keyframes cloud{
+  0%{
+     right: -200px;
+  }
+  100%{
+    right: 0;
+  }
+}
+
+.upload-box #Sun{
+  width: 80px;
+  animation: sun 3s forwards;
+}
+
+@keyframes sun{
+  0%{
+     left: -100px;
+     top: -100px;
+     transform: rotate(0) scale(0);
+  }
+  100%{
+    left: 280px;
+    top: 10px;
+    transform: rotate(360deg) scale(1) ;
+  }
+}
+
+.upload-box #Mountain{
+   width: 40%;
+   bottom: -20px;
+   right: -5px;
+   animation: mountain 3s forwards;
+}
+
+@keyframes mountain{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 .wrapper .content {
