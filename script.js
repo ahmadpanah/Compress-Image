@@ -11,7 +11,10 @@ const uploadBox = document.querySelector(".upload-box"),
   mountainImg=document.querySelector('#Mountain'),
   widthInput = document.querySelector('.form-group .width input'),
   heightInput = document.querySelector(".form-group .height input"),
-  ratioInput = document.querySelector(".Ratio input")
+  ratioInput = document.querySelector(".Ratio input"),
+  SaveBtn = document.querySelector(".download"),
+  QualityInput = document.querySelector(".Quality input")
+
 
   let originalImageRatio
 
@@ -30,8 +33,34 @@ const loadFile = (e) => {
 
 widthInput.addEventListener("keyup" , () => {
   const height = ratioInput.checked ? widthInput.value / originalImageRatio :  heightInput.value
-  heightInput.value = height
+  heightInput.value = Math.floor(height)
 })
+
+heightInput.addEventListener("keyup" , () => {
+  const width = ratioInput.checked ? heightInput.value * originalImageRatio :  widthInput.value
+  widthInput.value = Math.floor(width)
+})
+
+const resizeAndSave = () => {
+  const canvas = document.createElement("canvas")
+  const ctx = canvas.getContext("2d")
+  const a = document.createElement("a")
+
+  // 1.0 = 100 % ++++ 0.7 = 70%
+  const imgQuailty = QualityInput.checked ? 0.7 : 1.0
+
+  canvas.width = widthInput.value
+  canvas.height = heightInput.value
+
+  ctx.drawImage(imageBox,0,0, canvas.width , canvas.height)
+  a.href = canvas.toDataURL ("image/jpeg" , imgQuailty)
+  a.download = new Date().getTime()
+  a.click()
+  
+
+}
+
+SaveBtn.addEventListener("click" , resizeAndSave)
 
 fileInput.addEventListener("change" , loadFile)
 uploadBox.addEventListener("click", () => {
