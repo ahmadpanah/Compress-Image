@@ -125,7 +125,12 @@ div.wrapper {
   display: flex;
 }
 
-.form-group input {
+.form-group .width input {
+  width: 80%;
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.form-group .height input {
   width: 80%;
   border-radius: 0.375rem 0 0 0.375rem;
 }

@@ -8,8 +8,22 @@ const uploadBox = document.querySelector(".upload-box"),
   RateBox = document.querySelector(".ReductionRate"),
   cloudImg=document.querySelector('#Cloud'),
   sunImg=document.querySelector('#Sun'),
-  mountainImg=document.querySelector('#Mountain');
+  mountainImg=document.querySelector('#Mountain'),
+  widthInput = document.querySelector('.form-group .width input'),
+  heightInput = document.querySelector(".form-group .height input")
 
+const loadFile = (e) => {
+  const file = e.target.files[0]
+  if (!file) return;
+  imageBox.src = URL.createObjectURL(file);
+  imageBox.addEventListener("load" , () => {
+    widthInput.value = imageBox.naturalWidth
+    heightInput.value = imageBox.naturalHeight
+  })
+  console.log(file)
+}
+
+fileInput.addEventListener("change" , loadFile)
 uploadBox.addEventListener("click", () => {
   fileInput.click();
   cloudImg.style.display="none"
