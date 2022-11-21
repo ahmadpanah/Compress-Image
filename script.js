@@ -10,7 +10,11 @@ const uploadBox = document.querySelector(".upload-box"),
   sunImg=document.querySelector('#Sun'),
   mountainImg=document.querySelector('#Mountain'),
   widthInput = document.querySelector('.form-group .width input'),
-  heightInput = document.querySelector(".form-group .height input")
+  heightInput = document.querySelector(".form-group .height input"),
+  ratioInput = document.querySelector(".Ratio input")
+
+  let originalImageRatio
+
 
 const loadFile = (e) => {
   const file = e.target.files[0]
@@ -19,9 +23,15 @@ const loadFile = (e) => {
   imageBox.addEventListener("load" , () => {
     widthInput.value = imageBox.naturalWidth
     heightInput.value = imageBox.naturalHeight
+    originalImageRatio = imageBox.naturalWidth / imageBox.naturalHeight
   })
   console.log(file)
 }
+
+widthInput.addEventListener("keyup" , () => {
+  const height = ratioInput.checked ? widthInput.value / originalImageRatio :  heightInput.value
+  heightInput.value = height
+})
 
 fileInput.addEventListener("change" , loadFile)
 uploadBox.addEventListener("click", () => {
